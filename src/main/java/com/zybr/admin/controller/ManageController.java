@@ -1,9 +1,8 @@
-package com.zybr.www.controller;
+package com.zybr.admin.controller;
 
+import com.zybr.admin.AdminBaseController;
 import com.zybr.common.misc.Constant;
-import com.zybr.www.WwwBaseController;
 import com.zybr.www.command.TestCommand;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -17,17 +16,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by pst on 15-4-21.
+ * Created by pst on 15-4-23.
  */
 @Controller
-@RequestMapping("/test")
-public class TestController extends WwwBaseController {
+@RequestMapping("/manage")
+public class ManageController extends AdminBaseController {
 
-    @Value("${aa}")
-    private String ss;
-
-    @RequestMapping(value = "/t")
-    public ModelAndView test(HttpServletResponse response, @Valid TestCommand testCommand, BindingResult bindingResult) throws Exception {
+    @RequestMapping(value = "/login")
+    public ModelAndView login(HttpServletResponse response, @Valid TestCommand testCommand, BindingResult bindingResult) throws Exception {
         if (bindingResult.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             List<ObjectError> allErrors = bindingResult.getAllErrors();
@@ -39,7 +35,7 @@ public class TestController extends WwwBaseController {
         }
         Map<String, Object> map = new HashMap<>();
         map.put("ok", "哈哈哈是");
-        return new ModelAndView(Constant.VIEW_TEST, map);
+        return new ModelAndView(Constant.VIEW_LOGIN, map);
     }
 
 }
