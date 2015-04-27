@@ -19,7 +19,7 @@
     <![endif]-->
 </head>
 <body>
-<h1>你好，世界！</h1>
+<h1>欢迎登陆</h1>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-1.11.2.min.js"></script>
