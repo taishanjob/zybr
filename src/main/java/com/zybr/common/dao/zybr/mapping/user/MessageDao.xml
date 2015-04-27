@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zybr.common.dao.zybr.mapping.user.MessageDao">
+	<resultMap type="com.zybr.common.dao.zybr.bean.user.Message" id="resultMessageMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="company" property="company"/>
+		<result column="email" property="email"/>
+		<result column="phone" property="phone"/>
+		<result column="message" property="message"/>
+		<result column="create_time" property="createTime"/>
+	</resultMap>
+	<sql id="messageCondition">
+		<if test="id != null">
+			and `id`=#{id}
+		</if>
+		<if test="name != null">
+			and `name`=#{name}
+		</if>
+		<if test="company != null">
+			and `company`=#{company}
+		</if>
+		<if test="email != null">
+			and `email`=#{email}
+		</if>
+		<if test="phone != null">
+			and `phone`=#{phone}
+		</if>
+		<if test="message != null">
+			and `message`=#{message}
+		</if>
+		<if test="createTime != null">
+			and `create_time`=#{createTime}
+		</if>
+	</sql>
+	<sql id="messageParamCondition">
+		<include refid="messageCondition"/>
+		<if test="messageIdCollection != null and messageIdCollection.size() != 0">
+			<foreach collection="messageIdCollection" item="item" open="and `id` in(" separator="," close=")">
+				${item}
+			</foreach>
+		</if>
+		
+		<if test="groupView != null">
+			group by ${groupView}
+		</if>
+		<if test="orderView != null">
+			order by ${orderView}
+		</if>
+	</sql>
+	<select id="selectMessage" resultMap="resultMessageMap">
+		select * from zybr_message where 1=1
+		<include refid="messageParamCondition"/>
+		<if test="pageBean != null">
+			limit ${pageBean.index},${pageBean.rows}
+		</if>
+	</select>
+	<select id="countMessage" resultType="int">
+		select count(*) from zybr_message where 1=1
+		<include refid="messageParamCondition"/>
+	</select>
+	<insert id="insertMessage" useGeneratedKeys="true" keyProperty="id">
+		insert into zybr_message (
+			`name`,
+			`company`,
+			`email`,
+			`phone`,
+			`message`,
+			`create_time`)
+		values (
+			#{name},
+			#{company},
+			#{email},
+			#{phone},
+			#{message},
+			#{createTime})
+	</insert>
+	<insert id="insertMessageList">
+		insert into zybr_message (
+			`name`,
+			`company`,
+			`email`,
+			`phone`,
+			`message`,
+			`create_time`)
+		<foreach collection="list" item="item" open="values (" separator="),(" close=");">
+			#{item.name},
+			#{item.company},
+			#{item.email},
+			#{item.phone},
+			#{item.message},
+			#{item.createTime}		
+		</foreach>
+	</insert>
+	<update id="updateMessage">
+		update zybr_message
+			set
+			<if test="updateMessage != null">
+				<if test="updateMessage.name != null">
+				`name`=#{updateMessage.name},
+				</if>
+				<if test="updateMessage.company != null">
+				`company`=#{updateMessage.company},
+				</if>
+				<if test="updateMessage.email != null">
+				`email`=#{updateMessage.email},
+				</if>
+				<if test="updateMessage.phone != null">
+				`phone`=#{updateMessage.phone},
+				</if>
+				<if test="updateMessage.message != null">
+				`message`=#{updateMessage.message},
+				</if>
+				<if test="updateMessage.createTime != null">
+				`create_time`=#{updateMessage.createTime},
+				</if>
+			</if>
+			`id`=`id`
+		where 1=1
+		<include refid="messageParamCondition"/>
+	</update>
+	<delete id="deleteMessage">
+		delete from zybr_message where 1=1
+		<include refid="messageParamCondition"/>
+	</delete>
+</mapper>

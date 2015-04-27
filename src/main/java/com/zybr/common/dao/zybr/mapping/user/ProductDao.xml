@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zybr.common.dao.zybr.mapping.user.ProductDao">
+	<resultMap type="com.zybr.common.dao.zybr.bean.user.Product" id="resultProductMap">
+		<id column="id" property="id"/>
+		<result column="product_type" property="productType"/>
+		<result column="name" property="name"/>
+		<result column="img" property="img"/>
+		<result column="introduction" property="introduction"/>
+		<result column="parameter" property="parameter"/>
+	</resultMap>
+	<sql id="productCondition">
+		<if test="id != null">
+			and `id`=#{id}
+		</if>
+		<if test="productType != null">
+			and `product_type`=#{productType}
+		</if>
+		<if test="name != null">
+			and `name`=#{name}
+		</if>
+		<if test="img != null">
+			and `img`=#{img}
+		</if>
+		<if test="introduction != null">
+			and `introduction`=#{introduction}
+		</if>
+		<if test="parameter != null">
+			and `parameter`=#{parameter}
+		</if>
+	</sql>
+	<sql id="productParamCondition">
+		<include refid="productCondition"/>
+		<if test="productIdCollection != null and productIdCollection.size() != 0">
+			<foreach collection="productIdCollection" item="item" open="and `id` in(" separator="," close=")">
+				${item}
+			</foreach>
+		</if>
+		
+		<if test="groupView != null">
+			group by ${groupView}
+		</if>
+		<if test="orderView != null">
+			order by ${orderView}
+		</if>
+	</sql>
+	<select id="selectProduct" resultMap="resultProductMap">
+		select * from zybr_product where 1=1
+		<include refid="productParamCondition"/>
+		<if test="pageBean != null">
+			limit ${pageBean.index},${pageBean.rows}
+		</if>
+	</select>
+	<select id="countProduct" resultType="int">
+		select count(*) from zybr_product where 1=1
+		<include refid="productParamCondition"/>
+	</select>
+	<insert id="insertProduct" useGeneratedKeys="true" keyProperty="id">
+		insert into zybr_product (
+			`product_type`,
+			`name`,
+			`img`,
+			`introduction`,
+			`parameter`)
+		values (
+			#{productType},
+			#{name},
+			#{img},
+			#{introduction},
+			#{parameter})
+	</insert>
+	<insert id="insertProductList">
+		insert into zybr_product (
+			`product_type`,
+			`name`,
+			`img`,
+			`introduction`,
+			`parameter`)
+		<foreach collection="list" item="item" open="values (" separator="),(" close=");">
+			#{item.productType},
+			#{item.name},
+			#{item.img},
+			#{item.introduction},
+			#{item.parameter}		
+		</foreach>
+	</insert>
+	<update id="updateProduct">
+		update zybr_product
+			set
+			<if test="updateProduct != null">
+				<if test="updateProduct.productType != null">
+				`product_type`=#{updateProduct.productType},
+				</if>
+				<if test="updateProduct.name != null">
+				`name`=#{updateProduct.name},
+				</if>
+				<if test="updateProduct.img != null">
+				`img`=#{updateProduct.img},
+				</if>
+				<if test="updateProduct.introduction != null">
+				`introduction`=#{updateProduct.introduction},
+				</if>
+				<if test="updateProduct.parameter != null">
+				`parameter`=#{updateProduct.parameter},
+				</if>
+			</if>
+			`id`=`id`
+		where 1=1
+		<include refid="productParamCondition"/>
+	</update>
+	<delete id="deleteProduct">
+		delete from zybr_product where 1=1
+		<include refid="productParamCondition"/>
+	</delete>
+</mapper>
