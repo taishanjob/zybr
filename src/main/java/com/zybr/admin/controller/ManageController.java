@@ -2,6 +2,9 @@ package com.zybr.admin.controller;
 
 import com.zybr.admin.AdminBaseController;
 import com.zybr.admin.command.LoginCommand;
+import com.zybr.common.dao.zybr.bean.user.Message;
+import com.zybr.common.dao.zybr.param.user.MessageParam;
+import com.zybr.common.dao.zybr.service.user.MessageWrapService;
 import com.zybr.common.json.ResultMessage;
 import com.zybr.common.misc.CodeTool;
 import com.zybr.common.misc.Constant;
@@ -13,9 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by pst on 15-4-23.
@@ -28,6 +35,8 @@ public class ManageController extends AdminBaseController {
     private String username;
     @Value("${admin.password}")
     private String password;
+    @Resource
+    private MessageWrapService messageWrapService;
 
     @RequestMapping(value = "/login.html")
     public ModelAndView loginHtml() throws Exception {
@@ -61,7 +70,17 @@ public class ManageController extends AdminBaseController {
             write(response, CodeTool.toJsonString(e.getResultMessage()));
             return null;
         }
-        return new ModelAndView(Constant.VIEW_WELCOME);
+        MessageParam messageParam = new MessageParam();
+        List<Message> messageList = null;
+        try {
+            messageList = messageWrapService.selectMessage(messageParam);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Map<String, Object> model = new HashMap<>();
+        model.put("messageList", messageList);
+
+        return new ModelAndView(Constant.VIEW_WELCOME, model);
     }
 
 }

@@ -11,9 +11,9 @@
     <context:property-placeholder location="classpath:config.properties" ignore-unresolvable="true"/>
     <context:property-placeholder location="classpath:common-dao-zybr.properties" ignore-unresolvable="true"/>
 
+    <import resource="common-dao-zybr.xml"/>
+
     <import resource="spring-mvc-controllers.xml"/>
     <import resource="spring-mvc-context.xml"/>
-
-    <import resource="common-dao-zybr.xml"/>
 
 </beans>

@@ -20,7 +20,7 @@
 </head>
 <body>
 <h1>欢迎登陆</h1>
-
+${messageList}
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-1.11.2.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
