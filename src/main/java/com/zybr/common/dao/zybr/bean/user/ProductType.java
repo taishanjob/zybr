@@ -1,8 +1,11 @@
 package com.zybr.common.dao.zybr.bean.user;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class ProductType {
 
 	private Integer id;//
+    @NotEmpty(message = "{productType.name}")
 	private String name;//
 	
 	public ProductType() {

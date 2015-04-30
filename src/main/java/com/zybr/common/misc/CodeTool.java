@@ -7,6 +7,8 @@ import com.zybr.common.misc.Constant;
 import com.zybr.common.misc.MessageException;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -76,6 +78,32 @@ public class CodeTool {
             } while(fromIndex < toIndex);
         }
         return splitCollection;
+    }
+
+    public static <T> T getUniqueBean(List<T> list) {
+        if (list == null || list.isEmpty()) {
+            return null;
+        }
+        int size = list.size();
+        if (size == 1) {
+            return list.get(0);
+        } else {
+            throw new MessageException(new ResultMessage(Constant.CODE_FAILURE, "list is not unique, size is %1$s, list is %2$s", size, list));
+        }
+    }
+
+    public static String encodeMD5(String data) throws Exception {
+        byte[] digest = MessageDigest.getInstance("MD5").digest(data.getBytes(Constant.UTF_8));
+        StringBuilder sb = new StringBuilder();
+        String md5Hex;
+        for (int i = 0; i < digest.length; i++) {
+            md5Hex = Integer.toHexString(digest[i] & 0xFF);
+            if (md5Hex.length() < 2) {
+                sb.append(0);
+            }
+            sb.append(md5Hex);
+        }
+        return sb.toString();
     }
 
 }

@@ -23,9 +23,6 @@ import java.util.Map;
 @RequestMapping("/test")
 public class TestController extends WwwBaseController {
 
-    @Value("${aa}")
-    private String ss;
-
     @RequestMapping(value = "/t")
     public ModelAndView test(HttpServletResponse response, @Valid TestCommand testCommand, BindingResult bindingResult) throws Exception {
         if (bindingResult.hasErrors()) {
@@ -39,7 +36,7 @@ public class TestController extends WwwBaseController {
         }
         Map<String, Object> map = new HashMap<>();
         map.put("ok", "哈哈哈是");
-        return new ModelAndView(Constant.VIEW_TEST, map);
+        return new ModelAndView(Constant.VIEW_MAIN, map);
     }
 
 }

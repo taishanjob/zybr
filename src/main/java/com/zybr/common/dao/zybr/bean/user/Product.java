@@ -1,12 +1,19 @@
 package com.zybr.common.dao.zybr.bean.user;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Product {
 
 	private Integer id;//
+    @NotEmpty(message = "{product.productType}")
 	private Integer productType;//类型
+    @NotEmpty(message = "{product.name}")
 	private String name;//名称
+    @NotEmpty(message = "{product.img}")
 	private String img;//图片
+    @NotEmpty(message = "{product.introduction}")
 	private String introduction;//简介
+    @NotEmpty(message = "{product.parameter}")
 	private String parameter;//参数
 	
 	public Product() {

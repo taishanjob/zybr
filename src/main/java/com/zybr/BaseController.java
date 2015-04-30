@@ -3,6 +3,8 @@ package com.zybr;
 import com.zybr.common.json.ResultMessage;
 import com.zybr.common.misc.Constant;
 import com.zybr.common.misc.MessageException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
@@ -16,6 +18,8 @@ import java.util.List;
  * Created by pst on 15-4-23.
  */
 public abstract class BaseController {
+
+    protected Logger logger = LoggerFactory.getLogger(getClass());
 
     protected void write(HttpServletResponse response, String value) throws Exception {
         response.setContentType("text/html;charset=UTF-8");

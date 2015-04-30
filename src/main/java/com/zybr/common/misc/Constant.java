@@ -5,14 +5,31 @@ package com.zybr.common.misc;
  */
 public class Constant {
 
+    public static final String UTF_8 = "UTF-8";
+
     public static final int CODE_SUCCESS = 1;
     public static final int CODE_FAILURE = -1;
 
     public static final String LOGIN_MARK = "login_mark";
 
-    public static final String JSP_LOGIN = "/login.jsp";
+    public static final String NAV_ACTIVE = "nav_active";
+    public static final String NAV_ACTIVE_MESSAGE = "nav_active_message";
+    public static final String NAV_ACTIVE_PRODUCT = "nav_active_product";
+    public static final String NAV_ACTIVE_PRODUCT_TYPE = "nav_active_product_type";
 
-    public static final String VIEW_TEST = "test";
-    public static final String VIEW_WELCOME = "welcome";
+    public static final String REDIRECT_LOGIN_INPUT = "/action/manage/login/input";
+    public static final String REDIRECT_MESSAGE = "/action/manage/message";
+    public static final String REDIRECT_PRODUCT = "/action/manage/product";
+    public static final String REDIRECT_PRODUCT_TYPE = "/action/manage/product/type";
+
+    public static final String VIEW_MAIN = "admin/main";
+    public static final String VIEW_LOGIN= "admin/login";
+
+    public static final String IMPORT_MAIN = "importMain";
+    public static final String IMPORT_MESSAGE = "message.jsp";
+    public static final String IMPORT_PRODUCT = "product.jsp";
+    public static final String IMPORT_PRODUCT_INPUT = "product-input.jsp";
+    public static final String IMPORT_PRODUCT_TYPE = "product-type.jsp";
+    public static final String IMPORT_PRODUCT_TYPE_INPUT = "product-type-input.jsp";
 
 }
