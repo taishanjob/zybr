@@ -3,10 +3,10 @@
 <head>
     <title>中宇博润-首页</title>
 </head>
-<%@ include file="include.jsp" %>
+<jsp:include page="include.jsp"/>
 <body id="page1" onload="new ElementMaxHeight();">
 <!-- header -->
-<%@ include file="header.jsp" %>
+<jsp:include page="header.jsp"/>
 <!-- content -->
 <div id="content">
     <div class="container">
@@ -60,6 +60,6 @@
     </div>
 </div>
 <!-- footer -->
-<%@include file="footer.jsp"%>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>
