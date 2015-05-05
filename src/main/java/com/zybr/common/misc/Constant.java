@@ -25,6 +25,8 @@ public class Constant {
     public static final String VIEW_MAIN = "admin/main";
     public static final String VIEW_LOGIN= "admin/login";
 
+    public static final String VIEW_INDEX= "www/index";
+
     public static final String IMPORT_MAIN = "importMain";
     public static final String IMPORT_MESSAGE = "message.jsp";
     public static final String IMPORT_PRODUCT = "product.jsp";
