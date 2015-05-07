@@ -2,12 +2,12 @@ package com.zybr.common.dao.zybr.bean.user;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 public class Product {
 
 	private Integer id;//
-    @Min(value = 0, message = "{product.productType}")
+    @NotNull(message = "{product.productType}")
 	private Integer productType;//类型
     @NotEmpty(message = "{product.name}")
 	private String name;//名称
