@@ -2,7 +2,10 @@ package com.zybr.admin.controller;
 
 import com.zybr.admin.AdminBaseController;
 import com.zybr.common.dao.zybr.bean.user.Product;
+import com.zybr.common.dao.zybr.bean.user.ProductType;
 import com.zybr.common.dao.zybr.param.user.ProductParam;
+import com.zybr.common.dao.zybr.param.user.ProductTypeParam;
+import com.zybr.common.dao.zybr.service.user.ProductTypeWrapService;
 import com.zybr.common.dao.zybr.service.user.ProductWrapService;
 import com.zybr.common.json.ResultMessage;
 import com.zybr.common.misc.CodeTool;
@@ -46,6 +49,8 @@ public class ProductController extends AdminBaseController {
     private long uploadAttachedMaxsize;
     @Resource
     private ProductWrapService productWrapService;
+    @Resource
+    private ProductTypeWrapService productTypeWrapService;
 
     @RequestMapping(value = "/product")
     public ModelAndView product(HttpServletRequest request, PageBean pageBean, RedirectAttributes redirectAttributes) throws Exception {
@@ -60,10 +65,23 @@ public class ProductController extends AdminBaseController {
         productParam.setPageBean(pageBean);
         productParam.setOrderView("id desc");
         List<Product> productList;
+        Map<Integer, ProductType> productTypeMap = new HashMap<>();
         try {
             productList = productWrapService.selectProduct(productParam);
             pageBean.setTotal(productWrapService.countProduct(productParam));
             pageBean.compute();
+            Set<Integer> productTypeIdSet = new HashSet<>();
+            for (Product product : productList) {
+                productTypeIdSet.add(product.getProductType());
+            }
+            if (!productTypeIdSet.isEmpty()) {
+                ProductTypeParam productTypeParam = new ProductTypeParam();
+                productTypeParam.setProductTypeIdCollection(productTypeIdSet);
+                List<ProductType> productTypeList = productTypeWrapService.selectProductType(productTypeParam);
+                for (ProductType productType : productTypeList) {
+                    productTypeMap.put(productType.getId(), productType);
+                }
+            }
         } catch (Exception e) {
             productList = Collections.emptyList();
             logger.error(e.getMessage(), e);
@@ -73,6 +91,7 @@ public class ProductController extends AdminBaseController {
         model.put(Constant.IMPORT_MAIN, Constant.IMPORT_PRODUCT);
         model.put(Constant.NAV_ACTIVE, Constant.NAV_ACTIVE_PRODUCT);
         model.put("productList", productList);
+        model.put("productTypeMap", productTypeMap);
         model.put("pageBean", pageBean);
 
         return new ModelAndView(Constant.VIEW_MAIN, model);
@@ -88,11 +107,17 @@ public class ProductController extends AdminBaseController {
         }
 
         Product product = productWrapService.getProduct(id);
+        String productTypeName = "";
+        ProductType productType = productTypeWrapService.getProductType(product.getProductType());
+        if (productType != null) {
+            productTypeName = productType.getName();
+        }
 
         Map<String, Object> model = new HashMap<>();
         model.put(Constant.IMPORT_MAIN, Constant.IMPORT_PRODUCT_INPUT);
         model.put(Constant.NAV_ACTIVE, Constant.NAV_ACTIVE_PRODUCT);
         model.put("product", product);
+        model.put("productTypeName", productTypeName);
 
         return new ModelAndView(Constant.VIEW_MAIN, model);
     }

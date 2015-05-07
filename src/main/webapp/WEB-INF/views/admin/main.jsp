@@ -26,6 +26,8 @@
     <script src="/js/html5shiv.min.js"></script>
     <script src="/js/respond.min.js"></script>
     <![endif]-->
+    <script src="/js/jquery-1.11.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -70,9 +72,6 @@
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/js/jquery-1.11.2.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 <script src="/js/holder.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

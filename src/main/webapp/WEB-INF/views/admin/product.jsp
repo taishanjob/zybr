@@ -22,11 +22,11 @@
         <c:forEach var="product" items="${productList}">
             <tr>
                 <td>${product.id}</td>
-                <td><img src="${product.img}" alt=""></td>
+                <td><img src="${product.img}" width="200"></td>
                 <td>${product.name}</td>
                 <td>${product.introduction}</td>
                 <td>${product.parameter}</td>
-                <td>${product.productType}</td>
+                <td>${productTypeMap.get(product.productType).name}</td>
                 <td>
                     <button type="button" class="btn btn-sm btn-primary js-click" data-url="/action/manage/product/input?id=${product.id}">编辑</button>
                     <!-- Button trigger modal -->

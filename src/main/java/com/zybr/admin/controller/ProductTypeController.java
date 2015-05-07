@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Collections;
 import java.util.HashMap;
@@ -32,6 +33,30 @@ public class ProductTypeController extends AdminBaseController {
 
     @Resource
     private ProductTypeWrapService productTypeWrapService;
+
+    @RequestMapping(value = "/product/type/json")
+    public ModelAndView productTypeJson(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "q") String query, RedirectAttributes redirectAttributes) throws Exception {
+        try {
+            checkLogin(request);
+        } catch (MessageException e) {
+            redirectAttributes.addFlashAttribute(e.getResultMessage());
+            return CodeTool.redirect(Constant.REDIRECT_LOGIN_INPUT);
+        }
+
+        ProductTypeParam productTypeParam = new ProductTypeParam();
+        productTypeParam.setPageBean(new PageBean(1, 4));
+        productTypeParam.setLikeName(query);
+        List<ProductType> productTypeList;
+        try {
+            productTypeList = productTypeWrapService.selectProductType(productTypeParam);
+        } catch (Exception e) {
+            productTypeList = Collections.emptyList();
+            logger.error(e.getMessage(), e);
+        }
+
+        write(response, CodeTool.toJsonString(productTypeList));
+        return null;
+    }
 
     @RequestMapping(value = "/product/type")
     public ModelAndView productType(HttpServletRequest request, PageBean pageBean, RedirectAttributes redirectAttributes) throws Exception {

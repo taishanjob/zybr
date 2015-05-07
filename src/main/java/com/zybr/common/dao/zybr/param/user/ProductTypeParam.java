@@ -12,8 +12,20 @@ public class ProductTypeParam extends ProductType {
 	private String groupView;
 	private String orderView;
 	private Collection<Integer> productTypeIdCollection;
-	
-	public ProductType getUpdateProductType() {
+    private String likeName;
+
+    public String getLikeName() {
+        if (likeName != null) {
+            return likeName + "%";
+        }
+        return likeName;
+    }
+
+    public void setLikeName(String likeName) {
+        this.likeName = likeName;
+    }
+
+    public ProductType getUpdateProductType() {
 		return updateProductType;
 	}
 
