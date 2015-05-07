@@ -106,11 +106,14 @@ public class ProductController extends AdminBaseController {
             return CodeTool.redirect(Constant.REDIRECT_LOGIN_INPUT);
         }
 
-        Product product = productWrapService.getProduct(id);
         String productTypeName = "";
-        ProductType productType = productTypeWrapService.getProductType(product.getProductType());
-        if (productType != null) {
-            productTypeName = productType.getName();
+        Product product = productWrapService.getProduct(id);
+        if (product != null) {
+            Integer productTypeId = product.getProductType();
+            ProductType productType = productTypeWrapService.getProductType(productTypeId);
+            if (productType != null) {
+                productTypeName = productType.getName();
+            }
         }
 
         Map<String, Object> model = new HashMap<>();
