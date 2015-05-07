@@ -1,14 +1,22 @@
 package com.zybr.common.dao.zybr.bean.user;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.Date;
 
 public class Message {
 
 	private Integer id;//
+    @NotEmpty(message = "{message.name}")
 	private String name;//
+    @NotEmpty(message = "{message.company}")
 	private String company;//公司
+    @Email(message = "{message.email}")
 	private String email;//
+    @NotEmpty(message = "{message.phone}")
 	private String phone;//
+    @NotEmpty(message = "{message.message}")
 	private String message;//留言内容
 	private Date createTime;//创建时间
 	

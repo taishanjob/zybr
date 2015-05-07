@@ -21,6 +21,7 @@ public class Constant {
     public static final String REDIRECT_MESSAGE = "/action/manage/message";
     public static final String REDIRECT_PRODUCT = "/action/manage/product";
     public static final String REDIRECT_PRODUCT_TYPE = "/action/manage/product/type";
+    public static final String REDIRECT_CONTACTUS = "/contactus.jsp";
 
     public static final String VIEW_MAIN = "admin/main";
     public static final String VIEW_LOGIN= "admin/login";
