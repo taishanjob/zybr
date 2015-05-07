@@ -1,3 +1,5 @@
+<%@page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="header">
     <div class="bg">
         <div class="container">
@@ -13,18 +15,57 @@
             <div class="row-2">
                 <!-- .nav -->
                 <ul class="nav">
-                    <li><a href="index.html" class="current">首页</a></li>
-                    <li><a href="products.html">产品展示</a></li>
-                    <li><a href="recruitment.html">招贤纳士</a></li>
-                    <li><a href="contactus.html">联系我们</a></li>
+                    <li>
+                        <c:choose>
+                            <c:when  test="${source == 'index'}">
+                                <a href="index.jsp" class="current">首页</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="index.jsp">首页</a>
+                            </c:otherwise>
+                        </c:choose>
+                    </li>
+                    <li>
+                        <c:choose>
+                            <c:when  test="${source == 'products'}">
+                                <a href="products.jsp" class="current">产品展示</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="products.jsp">产品展示</a>
+                            </c:otherwise>
+                        </c:choose>
+                    </li>
+                    <li>
+                        <c:choose>
+                            <c:when  test="${source == 'recruitment'}">
+                                <a href="recruitment.jsp" class="current">招贤纳士</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="recruitment.jsp">招贤纳士</a>
+                            </c:otherwise>
+                        </c:choose>
+                    </li>
+                    <li>
+                        <c:choose>
+                            <c:when  test="${source == 'contactus'}">
+                                <a href="contactus.jsp" class="current">联系我们</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="contactus.jsp">联系我们</a>
+                            </c:otherwise>
+                        </c:choose>
+                    </li>
                 </ul>
                 <!-- /.nav -->
             </div>
             <div class="row-3">
                 <p>尖端技术知识<br/><br/>良好的销售和服务支持<br/><br/>优质的产品和有竞争力的价格</p>
+
                 <h1>产品搜索</h1><br/>
+
                 <form action="" id="search-form">
-                    <fieldset><input type="text" class="text" value="" /><input type="submit" class="submit" value="" /></fieldset>
+                    <fieldset><input type="text" class="text" value=""/><input type="submit" class="submit" value=""/>
+                    </fieldset>
                 </form>
             </div>
         </div>
