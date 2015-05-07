@@ -18,40 +18,40 @@
                     <li>
                         <c:choose>
                             <c:when  test="${source == 'index'}">
-                                <a href="index.jsp" class="current">首页</a>
+                                <a href="${ctx}/index.jsp" class="current">首页</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="index.jsp">首页</a>
+                                <a href="${ctx}/index.jsp">首页</a>
                             </c:otherwise>
                         </c:choose>
                     </li>
                     <li>
                         <c:choose>
                             <c:when  test="${source == 'products'}">
-                                <a href="products.jsp" class="current">产品展示</a>
+                                <a href="${ctx}/products.jsp" class="current">产品展示</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="products.jsp">产品展示</a>
+                                <a href="${ctx}/products.jsp">产品展示</a>
                             </c:otherwise>
                         </c:choose>
                     </li>
                     <li>
                         <c:choose>
                             <c:when  test="${source == 'recruitment'}">
-                                <a href="recruitment.jsp" class="current">招贤纳士</a>
+                                <a href="${ctx}/recruitment.jsp" class="current">招贤纳士</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="recruitment.jsp">招贤纳士</a>
+                                <a href="${ctx}/recruitment.jsp">招贤纳士</a>
                             </c:otherwise>
                         </c:choose>
                     </li>
                     <li>
                         <c:choose>
                             <c:when  test="${source == 'contactus'}">
-                                <a href="contactus.jsp" class="current">联系我们</a>
+                                <a href="${ctx}/contactus.jsp" class="current">联系我们</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="contactus.jsp">联系我们</a>
+                                <a href="${ctx}/contactus.jsp">联系我们</a>
                             </c:otherwise>
                         </c:choose>
                     </li>

@@ -1,7 +1,7 @@
 package com.zybr.www.controller;
 
-import com.zybr.admin.AdminBaseController;
 import com.zybr.common.misc.Constant;
+import com.zybr.www.WwwBaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,7 +14,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/static")
-public class ForwardController extends AdminBaseController {
+public class ForwardController extends WwwBaseController {
 
     @RequestMapping(value = "/index")
     public ModelAndView index() throws Exception {

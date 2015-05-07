@@ -30,6 +30,7 @@ public class Constant {
     public static final String VIEW_CONTACTUS= "www/contactus";
     public static final String VIEW_RECRUITMENT= "www/recruitment";
     public static final String VIEW_PRODUCTS= "www/products";
+    public static final String VIEW_DETAIL= "www/productInfo";
 
     public static final String IMPORT_MAIN = "importMain";
     public static final String IMPORT_MESSAGE = "message.jsp";
