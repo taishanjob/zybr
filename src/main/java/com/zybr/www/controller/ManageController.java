@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Date;
 
@@ -41,6 +42,12 @@ public class ManageController extends WwwBaseController {
 
         redirectAttributes.addFlashAttribute(new ResultMessage(Constant.CODE_SUCCESS, "留言成功"));
         return CodeTool.redirect(Constant.REDIRECT_CONTACTUS);
+    }
+
+    @RequestMapping(value = "/404")
+    public ModelAndView error(HttpServletResponse response) throws Exception {
+        response.setStatus(404);
+        return new ModelAndView(Constant.VIEW_404);
     }
 
 }
