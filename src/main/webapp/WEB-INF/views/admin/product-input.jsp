@@ -30,8 +30,11 @@
             <!-- Select Multiple -->
             <label class="control-label" for="productType">产品分类</label>
             <div class="controls">
-                <input type="text" data-items="4" data-provide="typeahead" style="margin: 0 auto;" value="${productTypeName}">
-                <input id="productType" name="productType" value="${product.productType}" type="hidden">
+                <select id="productType" name="productType">
+                    <c:forEach var="productType" items="${productTypeList}">
+                        <option value="${productType.id}" <c:if test="${productType.id == product.productType}">selected</c:if>>${productType.name}</option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
         <div class="control-group">
@@ -79,27 +82,6 @@
     </button>
 </form>
 <script>
-    var productTypeData;
-    $.fn.typeahead.defaults.source = function(query, process) {
-        $.post("/action/manage/product/type/json", {"q":query}, function(data){
-            productTypeData = data;
-            process($.map( data, function(n){
-                return n.name;
-            }));
-        },"json");
-    }
-    $.fn.typeahead.Constructor.prototype.matcher = function(item) {
-        return true;
-    }
-    $.fn.typeahead.Constructor.prototype.updater = function(item) {
-        $.each( productTypeData, function(i, n){
-            if (n.name === item) {
-                $("#productType").val(n.id);
-                return false;
-            }
-        });
-        return item;
-    }
     KindEditor.ready(function(K) {
         var uploadbutton = K.uploadbutton({
             button : K('#js-img-upload-utton')[0],

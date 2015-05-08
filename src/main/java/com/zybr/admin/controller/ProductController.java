@@ -106,21 +106,14 @@ public class ProductController extends AdminBaseController {
             return CodeTool.redirect(Constant.REDIRECT_LOGIN_INPUT);
         }
 
-        String productTypeName = "";
         Product product = productWrapService.getProduct(id);
-        if (product != null) {
-            Integer productTypeId = product.getProductType();
-            ProductType productType = productTypeWrapService.getProductType(productTypeId);
-            if (productType != null) {
-                productTypeName = productType.getName();
-            }
-        }
+        List<ProductType> productTypeList = productTypeWrapService.selectProductType(new ProductTypeParam());
 
         Map<String, Object> model = new HashMap<>();
         model.put(Constant.IMPORT_MAIN, Constant.IMPORT_PRODUCT_INPUT);
         model.put(Constant.NAV_ACTIVE, Constant.NAV_ACTIVE_PRODUCT);
         model.put("product", product);
-        model.put("productTypeName", productTypeName);
+        model.put("productTypeList", productTypeList);
 
         return new ModelAndView(Constant.VIEW_MAIN, model);
     }

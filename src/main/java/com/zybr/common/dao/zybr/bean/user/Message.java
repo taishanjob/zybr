@@ -12,7 +12,7 @@ public class Message {
 	private String name;//
     @NotEmpty(message = "{message.company}")
 	private String company;//公司
-    @Email(message = "{message.email}")
+    @NotEmpty(message = "{message.email}")
 	private String email;//
     @NotEmpty(message = "{message.phone}")
 	private String phone;//
