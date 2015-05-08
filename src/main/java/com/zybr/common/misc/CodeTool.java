@@ -3,11 +3,10 @@ package com.zybr.common.misc;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zybr.common.json.ResultMessage;
-import com.zybr.common.misc.Constant;
-import com.zybr.common.misc.MessageException;
+import org.htmlparser.Parser;
+import org.htmlparser.util.NodeIterator;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -102,6 +101,16 @@ public class CodeTool {
                 sb.append(0);
             }
             sb.append(md5Hex);
+        }
+        return sb.toString();
+    }
+
+    public static String parser(String value) throws Exception {
+        StringBuilder sb = new StringBuilder();
+        Parser parser = new Parser(value);
+        NodeIterator elements = parser.elements();
+        while (elements.hasMoreNodes()) {
+            sb.append(elements.nextNode().toPlainTextString());
         }
         return sb.toString();
     }
