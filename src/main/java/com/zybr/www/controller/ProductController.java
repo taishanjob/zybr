@@ -38,13 +38,18 @@ public class ProductController extends WwwBaseController {
         if (id != null && id > 0){
             productParam.setProductType(id);
         }
-        pageBean.setRows(5);
+        pageBean.setRows(10);
         productParam.setPageBean(pageBean);
         productParam.setOrderView("id desc");
         productParam.setLikeName(query);
         List<Product> productList;
         List<ProductType> productTypeList;
-        ProductType productType = new ProductType(0, "全部产品");
+        ProductType productType = null;
+        if (query != null && !query.trim().isEmpty()){
+            productType = new ProductType(0, query);
+        } else {
+            productType = new ProductType(0, "全部产品");
+        }
         try {
             productList = productWrapService.selectProduct(productParam);
             pageBean.setTotal(productWrapService.countProduct(productParam));
@@ -65,6 +70,11 @@ public class ProductController extends WwwBaseController {
         }
 
         Map<String, Object> model = new HashMap<>();
+        if (query != null && !query.trim().isEmpty()){
+            model.put("query", query);
+        } else {
+            model.put("query", "");
+        }
         model.put("productList", productList);
         model.put("productTypeList", productTypeList);
         model.put("productType", productType);

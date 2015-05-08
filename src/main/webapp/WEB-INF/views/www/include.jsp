@@ -9,6 +9,6 @@
 <script src="${ctx}/js/maxheight.js" type="text/javascript"></script>
 <script src="${ctx}/js/jquery-1.4.2.min.js" type="text/javascript"></script>
 <script src="${ctx}/js/cufon-yui.js" type="text/javascript"></script>
-<script src="${ctx}/js/cufon-replace.js" type="text/javascript"></script>
+<%--<script src="${ctx}/js/cufon-replace.js" type="text/javascript"></script>--%>
 <script src="${ctx}/js/Myriad_Pro_300.font.js" type="text/javascript"></script>
 <script src="${ctx}/js/Myriad_Pro_400.font.js" type="text/javascript"></script>
