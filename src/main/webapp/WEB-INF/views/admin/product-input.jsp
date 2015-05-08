@@ -4,7 +4,6 @@
 <link href="/js/kindeditor/themes/default/default.css" rel="stylesheet">
 <script src="/js/kindeditor/kindeditor-all-min.js"></script>
 <script src="/js/kindeditor/lang/zh_CN.js"></script>
-<script src="/js/bootstrap-typeahead.js"></script>
 <form class="form-horizontal" id="js-product-form" action="/action/manage/product/manage" method="post">
     <fieldset>
         <div id="legend">

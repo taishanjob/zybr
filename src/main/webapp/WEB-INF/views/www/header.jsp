@@ -63,8 +63,8 @@
 
                 <h1>产品搜索</h1><br/>
 
-                <form action="" id="search-form">
-                    <fieldset><input type="text" class="text" value=""/><input type="submit" class="submit" value=""/>
+                <form action="/action//product/list" method="post" id="search-form">
+                    <fieldset><input name="q" type="text" class="text" value=""/><input type="submit" class="submit" value=""/>
                     </fieldset>
                 </form>
             </div>

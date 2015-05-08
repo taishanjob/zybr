@@ -36,6 +36,11 @@
 				${item}
 			</foreach>
 		</if>
+        <if test="likeName != null">
+            <![CDATA[
+			and `name` like #{likeName}
+			]]>
+        </if>
 		
 		<if test="groupView != null">
 			group by ${groupView}

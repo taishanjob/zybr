@@ -33,14 +33,15 @@ public class ProductController extends WwwBaseController {
     private ProductTypeWrapService productTypeWrapService;
 
     @RequestMapping(value = "/list")
-    public ModelAndView list(@RequestParam(value = "id", required = false) Integer id, PageBean pageBean) throws Exception {
+    public ModelAndView list(@RequestParam(value = "id", required = false) Integer id, @RequestParam(value = "q", required = false) String query, PageBean pageBean) throws Exception {
         ProductParam productParam = new ProductParam();
         if (id != null && id > 0){
             productParam.setProductType(id);
         }
-        pageBean.setRows(1);
+        pageBean.setRows(5);
         productParam.setPageBean(pageBean);
         productParam.setOrderView("id desc");
+        productParam.setLikeName(query);
         List<Product> productList;
         List<ProductType> productTypeList;
         ProductType productType = new ProductType(0, "全部产品");
