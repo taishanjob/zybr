@@ -107,7 +107,8 @@ public class CodeTool {
 
     public static String parser(String value) throws Exception {
         StringBuilder sb = new StringBuilder();
-        Parser parser = new Parser(value);
+        Parser parser = new Parser();
+        parser.setInputHTML(value);
         NodeIterator elements = parser.elements();
         while (elements.hasMoreNodes()) {
             sb.append(elements.nextNode().toPlainTextString());
