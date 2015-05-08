@@ -79,18 +79,6 @@
     </div>
 </div>
 <!-- footer -->
-<div id="footer">
-    <div class="bg">
-        <div class="container">
-            <div class="indent">
-                Copyright - Type in your name here - Collect from <a href="http://www.17sucai.com/"
-                                                                     title="17素材网">17素材网</a></div>
-            <br/>
-
-        </div>
-    </div>
-</div>
-</div>
-<script type="text/javascript"> Cufon.now(); </script>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>
