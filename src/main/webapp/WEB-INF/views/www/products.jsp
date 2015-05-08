@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -40,7 +39,7 @@
                             <li>
                                 <img src="${item.img}" alt="${item.name}" />
                                 <h3><a target="_blank" href="${ctx}/action/product/detail?id=${item.id}">${item.name}</a></h3>
-                                ${fn:substring(item.introduction,0,50)}
+                                ${item.description}
                             </li>
                         </c:forEach>
                     </ul>

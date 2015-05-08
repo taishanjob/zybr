@@ -1,5 +1,6 @@
 package com.zybr.common.dao.zybr.bean.user;
 
+import com.zybr.common.misc.CodeTool;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
@@ -84,4 +85,18 @@ public class Product {
 		this.parameter = parameter;
 	}
 
+    public String getDescription(){
+        String shortIntroduction = "";
+        if(introduction != null) {
+            try {
+                String parserString = CodeTool.parser(introduction);
+                if (parserString.length() > 50) {
+                    shortIntroduction = parserString.substring(0, 50)+"...";
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return shortIntroduction;
+    }
 }
