@@ -13,17 +13,19 @@ table, table td {padding:0;border:none;border-collapse:collapse}
 .alignright {text-align:right}
 .aligncenter {text-align:center}
 .wrapper {width:100%;overflow:hidden}
-.wrapper h1 {padding-top:13px;color: #FFFFFF}
+.wrapper h1 {padding-top:13px;color: #FFF}
 /* GLOBAL */
 .container {width:920px;margin:0 auto;font-size:.875em}
-#header {height:430px;overflow:hidden;background:url(../images/header-tail.gif) 0 0 repeat-x;min-width:920px}
-#header .bg {background:url(../images/header-bg.jpg) no-repeat 50% 0;height:430px}
+/*#header {height:430px;overflow:hidden;background:url(../images/header-tail.gif) 0 0 repeat-x;min-width:920px}*/
+#header {height:430px;overflow:hidden;background-color:#072e59;min-width:920px}
+#header .bg {background:url(../images/header-bg1-2.png) no-repeat 50% 0;height:430px}
 #content {background:url(../images/content-bg.gif) 0 0 repeat-x}
 #content .aside {float:left;width:287px;background:url(../images/sidebar-extra-bg.jpg) no-repeat 0 100% #f0f0f0}
 #content .mainContent {float:left;width:633px}
 #content .mainContent table {width:633px;background-color: #E2E2E2}
 #content .mainContent table tr {border:10px solid #F0F0F0;border-top-color:#E2E2E2}
 #footer {height:125px;background:url(../images/footer-tail.gif) 0 0 repeat-x}
+/*#footer {height:125px;background-color: #CCE0F8;}*/
 #footer .bg {height:125px;background:url(../images/footer-bg.jpg) no-repeat 50% 0}
 /* forms parameters */
 input, select, textarea {font-family:Arial, Helvetica, sans-serif;font-size:1em;vertical-align:middle;font-weight:normal}
@@ -73,8 +75,8 @@ h6 {}
 #header .top-links li a.mail:hover, #header .top-links li a.mail-current {background:url(../images/icon-mail-sprite.gif) no-repeat 0 -10px}
 #header .top-links li a.sitemap {background:url(../images/icon-sitemap-sprite.gif) no-repeat 0 0}
 #header .top-links li a.sitemap:hover, #header .top-links li a.sitemap-current {background:url(../images/icon-sitemap-sprite.gif) no-repeat 0 -10px}
-#header .row-2 {height:84px;overflow:hidden}
-#header .nav {padding:13px 0 0 18px}
+#header .row-2 {height:84px;overflow:hidden;}
+#header .nav {padding:13px 0 0 18px;}
 #header .nav li {float:left;padding:0 20px}
 #header .nav li a {float:left;font-size:16px;line-height:1.2em;color:#9ddeff;text-decoration:none;text-transform:uppercase}
 #header .nav li a:hover, #header .nav li a.current {color:#fff;text-decoration:none}

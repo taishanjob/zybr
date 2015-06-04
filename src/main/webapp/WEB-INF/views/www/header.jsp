@@ -59,7 +59,7 @@
                 <!-- /.nav -->
             </div>
             <div class="row-3">
-                <p>尖端技术知识<br/><br/>良好的销售和服务支持<br/><br/>优质的产品和有竞争力的价格</p>
+                <p><b>利用科技的力量<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;挽救更多的生命</b></p>
 
                 <h1>产品搜索</h1><br/>
 
