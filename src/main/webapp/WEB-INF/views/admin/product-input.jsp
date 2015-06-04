@@ -22,7 +22,7 @@
             <!-- Text input-->
             <label class="control-label" for="name">产品名</label>
             <div class="controls">
-                <input placeholder="请输入产品名" id="name" name="name" value="${product.name}" class="input-xlarge" type="text">
+                <input placeholder="请输入产品名" id="name" name="name" value="${product.name}" class="input-xlarge" type="text" size="100">
             </div>
         </div>
         <div class="control-group">

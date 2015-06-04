@@ -2,12 +2,15 @@ package com.zybr.common.dao.zybr.bean.user;
 
 import com.zybr.common.misc.CodeTool;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.NotNull;
 
 public class Product {
 
-	private Integer id;//
+    private Logger logger = LoggerFactory.getLogger(getClass());
+    private Integer id;//
     @NotNull(message = "{product.productType}")
 	private Integer productType;//类型
     @NotEmpty(message = "{product.name}")
@@ -94,7 +97,7 @@ public class Product {
                     shortIntroduction = parserString.substring(0, 50)+"...";
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error(e.getMessage(), e);
             }
         }
         return shortIntroduction;
