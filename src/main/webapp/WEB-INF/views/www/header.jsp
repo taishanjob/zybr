@@ -3,15 +3,6 @@
 <div id="header">
     <div class="bg">
         <div class="container">
-            <div class="row-1">
-                <div class="wrapper">
-                    <div class="fleft"><h1>北京中宇博润国际科技有限公司</h1></div>
-                    <ul class="top-links">
-                        <li class="first"><a href="index.html" class="home"></a></li>
-                        <li><a href="contactus.html" class="mail"></a></li>
-                    </ul>
-                </div>
-            </div>
             <div class="row-2">
                 <!-- .nav -->
                 <ul class="nav">
@@ -57,6 +48,15 @@
                     </li>
                 </ul>
                 <!-- /.nav -->
+            </div>
+            <div class="row-1">
+                <div class="wrapper">
+                    <div class="fleft"><h1>北京中宇博润国际科技有限公司</h1></div>
+                    <ul class="top-links">
+                        <li class="first"><a href="index.html" class="home"></a></li>
+                        <li><a href="contactus.html" class="mail"></a></li>
+                    </ul>
+                </div>
             </div>
             <div class="row-3">
                 <p><b>利用科技的力量<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;挽救更多的生命</b></p>

@@ -18,7 +18,7 @@ table, table td {padding:0;border:none;border-collapse:collapse}
 .container {width:920px;margin:0 auto;font-size:.875em}
 /*#header {height:430px;overflow:hidden;background:url(../images/header-tail.gif) 0 0 repeat-x;min-width:920px}*/
 #header {height:430px;overflow:hidden;background-color:#072e59;min-width:920px}
-#header .bg {background:url(../images/header-bg1-2.png) no-repeat 50% 0;height:430px}
+#header .bg {background:url(../images/header-bg1-3.jpg) no-repeat 50% 0;height:430px}
 #content {background:url(../images/content-bg.gif) 0 0 repeat-x}
 #content .aside {float:left;width:287px;background:url(../images/sidebar-extra-bg.jpg) no-repeat 0 100% #f0f0f0}
 #content .mainContent {float:left;width:633px}
@@ -62,7 +62,7 @@ h6 {}
 .address dd {clear:both;text-align:right}
 .address dd span {float:left;padding-right:25px}
 /* header */
-#header .row-1 {height:91px;overflow:hidden}
+#header .row-1 {height:91px;overflow:hidden;}
 #header .row-1 .fleft {padding:14px 0 0 33px}
 #header .top-links {float:right;padding:41px 0 0 0}
 #header .top-links li {float:left;background:url(../images/divider.gif) no-repeat 0 0;padding:1px 28px 2px 28px}
@@ -80,8 +80,8 @@ h6 {}
 #header .nav li {float:left;padding:0 20px}
 #header .nav li a {float:left;font-size:16px;line-height:1.2em;color:#9ddeff;text-decoration:none;text-transform:uppercase}
 #header .nav li a:hover, #header .nav li a.current {color:#fff;text-decoration:none}
-#header .row-3 {padding:1px 500px 0 33px;color:#fff}
-#header .row-3 p {padding:12px 0 0 4px;margin-bottom:39px;letter-spacing:8px;}
+#header .row-3 {padding:1px 500px 0 33px;color:#fff;}
+#header .row-3 p {padding:12px 0 0 4px;margin-bottom:39px;letter-spacing:8px;font-size:18px;}
 /* content */
 #content {}
 #content .aside .indent1 {padding:42px 0px 280px 0px;background:url(../images/sidebar-bg.gif) 0 0 repeat-x}

@@ -3,7 +3,7 @@
     <h2>联系方式</h2>
     <dl class="news">
         <dt><a href="#">联系人：</a></dt>
-        <dd>关朝</dd>
+        <dd>关先生</dd>
         <dt><a href="#">手机：</a></dt>
         <dd>136-0121-2372</dd>
         <dt><a href="#">传真：</a></dt>
