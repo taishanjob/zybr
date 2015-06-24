@@ -75,7 +75,7 @@ h6 {}
 #header .top-links li a.mail:hover, #header .top-links li a.mail-current {background:url(../images/icon-mail-sprite.gif) no-repeat 0 -10px}
 #header .top-links li a.sitemap {background:url(../images/icon-sitemap-sprite.gif) no-repeat 0 0}
 #header .top-links li a.sitemap:hover, #header .top-links li a.sitemap-current {background:url(../images/icon-sitemap-sprite.gif) no-repeat 0 -10px}
-#header .row-2 {height:84px;overflow:hidden;}
+#header .row-2 {height:64px;overflow:hidden;}
 #header .nav {padding:13px 0 0 18px;}
 #header .nav li {float:left;padding:0 20px}
 #header .nav li a {float:left;font-size:16px;line-height:1.2em;color:#9ddeff;text-decoration:none;text-transform:uppercase}
